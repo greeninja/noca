@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116170816) do
+ActiveRecord::Schema.define(version: 20151117212100) do
+
+  create_table "incident_updates", force: :cascade do |t|
+    t.integer  "incident_id", limit: 4
+    t.text     "cs_update",   limit: 65535
+    t.text     "tech_update", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "incident_updates", ["incident_id"], name: "index_incident_updates_on_incident_id", using: :btree
 
   create_table "incidents", force: :cascade do |t|
     t.string   "title",            limit: 200
