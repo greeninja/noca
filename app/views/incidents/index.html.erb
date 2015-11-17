@@ -9,6 +9,7 @@
     <th>ID</th>
     <th>Title</th>
     <th>Source</th>
+    <th>Severity</th>
     <th>Incident Manager</th>
     <th>Impact</th>
     <th>Platform</th>
@@ -24,11 +25,12 @@
     <td><%= incident.id %></td>
     <td><%= incident.title %></td>
     <td><%= incident.source %></td>
+    <td><%= incident.severity %></td>
     <td><%= incident.incident_manager %></td>
-    <td><%= incident.imapct %></td>
+    <td><%= incident.impact %></td>
     <td><%= incident.platform %></td>
-    <td><%= incident.cs_status ? 'Open' : 'Closed' %></td>
-    <td><%= incident.tech_status ? 'Open' : 'Closed' %></td>
+    <td><%= incident.cs_status ? 'Closed' : 'Open' %></td>
+    <td><%= incident.tech_status ? 'Closed' : 'Open' %></td>
     <td><%= incident.update_due %></td>
     <td><%= incident.callout ? 'Yes' : 'No' %></td>
     <td><%= incident.created_at %></td>
