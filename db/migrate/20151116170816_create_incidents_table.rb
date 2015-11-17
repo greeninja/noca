@@ -12,7 +12,7 @@ class CreateIncidentsTable < ActiveRecord::Migration
     # Technical Status => boolean Open / Closed
     # Update Due       => time.now + <%= Setting.priority.update_frequency %>.hour
     # Callout          => boolean for now 
-    create_table :incidents_tables do |t|
+    create_table :incidents do |t|
       t.string "title", :limit => 200
       t.string "source", :limit => 100
       t.string "incident_manager", null: false
