@@ -18,8 +18,8 @@ class CreateIncidentsTable < ActiveRecord::Migration
       t.string "incident_manager", null: false
       t.string "impact"
       t.string "platform"
-      t.boolean "cs_status", default: true
-      t.boolean "tech_status", default: true
+      t.boolean "cs_status", default: false
+      t.boolean "tech_status", default: false
       t.timestamp "update_due"
       t.boolean "callout", default: false
       t.timestamps null: false
