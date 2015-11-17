@@ -10,7 +10,8 @@ class Incident < ActiveRecord::Base
   scope :techclosed, lambda { where(:tech_status => true) }
   scope :csclosed, lambda { where(:cs_status => true) }
   # Would be nice if this worked...
-  # scope :open, lambda { where(:cs_status => false).or(:tech_status => false) }
+  scope :open, lambda { where("cs_status = ? or tech_status = ?", "0", "0") }
+  scope :opensorted, lambda { where("cs_status = ? or tech_status = ?", "0", "0").order("incidents.created_at DESC") } 
   scope :sorted, lambda { order("incidents.created_at DESC") }
   scope :nextupdate, lambda { order("incidents.update_due DESC") }
   scope :search, lambda {|query|
