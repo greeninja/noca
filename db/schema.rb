@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117213140) do
+ActiveRecord::Schema.define(version: 20151117225631) do
 
   create_table "incident_updates", force: :cascade do |t|
     t.integer  "incident_id", limit: 4
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20151117213140) do
     t.boolean  "callout",                      default: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
+    t.integer  "severity",         limit: 4
   end
 
 end
