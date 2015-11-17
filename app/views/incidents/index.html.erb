@@ -19,6 +19,7 @@
     <th>Callout</th>
     <th>Created At</th>
     <th>Updated At</th>
+    <th>Actions</th>
   </tr>
   <tr>
   <% @incidents.each do |incident| %>
@@ -35,6 +36,9 @@
     <td><%= incident.callout ? 'Yes' : 'No' %></td>
     <td><%= incident.created_at %></td>
     <td><%= incident.updated_at %></td>
+    <td><%= link_to("Show", {:action => 'show', :id => incident.id}) %>
+        <%= link_to("Update", {:action => 'edit', :id => incident.id}) %>
+    </td>
   </tr>
   <% end %>
 </table>
