@@ -13,6 +13,16 @@ class CreateIncidentsTable < ActiveRecord::Migration
     # Update Due       => time.now + <%= Setting.priority.update_frequency %>.hour
     # Callout          => boolean for now 
     create_table :incidents_tables do |t|
+      t.string "title", :limit => 200
+      t.string "source", :limit => 100
+      t.string "incident_manager", null: false
+      t.string "impact"
+      t.string "platform"
+      t.boolean "cs_status", default: true
+      t.boolean "tech_status", default: true
+      t.timestamp "update_due"
+      t.boolean "callout", default: false
+      t.timestamps null: false
     end
   end
 end
