@@ -35,4 +35,10 @@ class IncidentsController < ApplicationController
       render('edit')
     end
   end
+
+private
+  def incident_params
+    params.require(:incident).permit(:title, :source, :incident_manager, :impact, :platform, :cs_status, :tech_status, :update_due, :callout, :severity)
+  end
+
 end
