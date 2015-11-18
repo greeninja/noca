@@ -1,2 +1,45 @@
-<h1>Incidents#show</h1>
-<p>Find me in app/views/incidents/show.html.erb</p>
+<%= link_to("<< Back to List", {:action => 'index'} %>
+
+<h2>Show Incident</h2>
+  <table summary="Incident Detail View">
+    <tr>
+      <th>Title</th>
+      <td><%= @incident.title %>
+    </tr>
+    <tr>
+      <th>Source</th>
+      <td><%= @incident.source %>
+    </tr>
+    <tr>
+      <th>Severity</th>
+      <td><%= @incident.severity %>
+    </tr>
+    <tr>
+      <th>Incident Manager</th>
+      <td><%= @incident.incident_manager %>
+    </tr>
+    <tr>
+      <th>Impact</th>
+      <td><%= @incident.impact %>
+    </tr>
+    <tr>
+      <th>Platform</th>
+      <td><%= @incident.platform %>
+    </tr>
+    <tr>
+      <th>Customer Status</th>
+      <td><%= @incident.cs_status ? 'Closed' : 'Open' %>
+    </tr>
+    <tr>
+      <th>Technical Status</th>
+      <td><%= @incident.tech_status ? 'Closed' : 'Open' %>
+    </tr>
+    <tr>
+      <th>Update Due</th>
+      <td><%= @incident.update_due %>
+    </tr>
+    <tr>
+      <th>Callout</th>
+      <td><%= @incident.callout ? 'Yes' : 'No' %>
+    </tr>
+  </table>
