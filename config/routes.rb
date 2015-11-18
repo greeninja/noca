@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  get 'incidents/index'
-
-  get 'incidents/show'
-
-  get 'incidents/new'
-
-  get 'incidents/edit'
+  
+  # Default route added
+  match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
