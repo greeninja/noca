@@ -3,6 +3,10 @@ class IncidentsController < ApplicationController
     @incidents = Incident.opensorted
   end
 
+  def closed
+    @incidents = Incident.closedsorted
+  end
+
   def show
     @incident = Incident.find(params[:id])
   end
