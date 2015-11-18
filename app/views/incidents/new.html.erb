@@ -1,2 +1,8 @@
-<h1>Incidents#new</h1>
-<p>Find me in app/views/incidents/new.html.erb</p>
+<%= link_to("<< Back to List", {:action => 'index'} ) %>
+
+<h2>New Incident</h2>
+<%= form_for(:incident, :url => {:action => 'create'} ) do |f| %>
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+  <%= submit_tag("Create Incident") %>
+<% end %>
+
