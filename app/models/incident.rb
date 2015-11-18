@@ -14,6 +14,7 @@ class Incident < ActiveRecord::Base
   scope :opensorted, lambda { where("cs_status = ? or tech_status = ?", "0", "0").order("incidents.created_at DESC") } 
   scope :sorted, lambda { order("incidents.created_at DESC") }
   scope :nextupdate, lambda { order("incidents.update_due DESC") }
+  scope :closedsorted, lambda { where("cs_status = ? or tech_status = ?", "1", "1").order("incidents.created_at DESC") }
   scope :search, lambda {|query|
     where(["name LIKE ?", "%#{query}%"])
     }
