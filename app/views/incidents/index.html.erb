@@ -5,6 +5,7 @@
 <p><%= pluralize(@incidents.size, 'incident') %> open</p>
 
 <%= link_to("New Incident", {:action => 'new'} ) %>
+<%= link_to("Closed Incidents", {:action => 'closed'} ) %>
 
 <table>
   <tr>
