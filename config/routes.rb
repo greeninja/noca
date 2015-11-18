@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'incident_updates/index'
+
+  get 'incident_updates/show'
+
+  get 'incident_updates/new'
+
+  get 'incident_updates/edit'
+
   # Default route added
   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
 
