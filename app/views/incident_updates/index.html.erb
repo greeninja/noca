@@ -1,2 +1,18 @@
-<h1>IncidentUpdates#index</h1>
-<p>Find me in app/views/incident_updates/index.html.erb</p>
+<%= link_to("<< Back", {:controller => 'incidents', :action => 'index' } ) %>
+
+<%= link_to("Add new Update", {:action => 'new', :incident => @incident.id} ) %>
+
+<table>
+  <tr>
+    <th>Incident Title</th>
+    <th>Customer Update</th>
+    <th>Technical Update</th>
+  </tr>
+  <% @updates.each do |update| %>
+  <tr>
+    <td><%= @incident.title %></td>
+    <td><%= update.cs_update %></td>
+    <td><%= update.tech_update %></td>
+  </tr>
+  <% end %>
+</table>
