@@ -1,43 +1,43 @@
-<%= error_messages_for(@incident) %>
+<%# error_messages_for(@incident) %>
 <table summary="Incdent form field">
   <tr>
-    <th><% f.label(:title, "Title") %></th>
+    <th><%= f.label(:title, "Title") %></th>
     <td><%= f.text_field(:title) %></td>
   </tr>
   <tr>
-    <th><% f.label(:source, "Source") %></th>
+    <th><%= f.label(:source, "Source") %></th>
     <td><%= f.text_field(:source) %></td>
   </tr>
   <tr>
-    <th><% f.label(:severity, "Severity") %></th>
-    <td><%= f.text_field(:severity, 1..3) %></td>
+    <th><%= f.label(:severity, "Severity") %></th>
+    <td><%= f.select :severity, (1..3) %></td>
   </tr>
   <tr>
-    <th><% f.label(:impact, "Impact") %></th>
+    <th><%= f.label(:impact, "Impact") %></th>
     <td><%= f.text_field(:impact) %></td>
   </tr>
   <tr>
-    <th><% f.label(:platform, "Platform") %></th>
+    <th><%= f.label(:platform, "Platform") %></th>
     <td><%= f.text_field(:platform) %></td>
   </tr>
   <tr>
-    <th><% f.label(:cs_status, "Customer Status") %></th>
-    <td><%= f.check_box(:cs_status) %></td>
+    <th><%= f.label(:cs_status, "Customer Status") %></th>
+    <td><%= f.select :cs_status, [['Open', false], ['Closed', true]] %></td>
   </tr>
   <tr>
-    <th><% f.label(:tech_status, "Technical Status") %></th>
-    <td><%= f.check_box(:tech_status) %></td>
+    <th><%= f.label(:tech_status, "Technical Status") %></th>
+    <td><%= f.select :tech_status, [['Open', false], ['Closed', true]] %></td>
   </tr>
   <tr>
-    <th><% f.label(:update_due, "Update Due") %></th>
+    <th><%= f.label(:update_due, "Update Due") %></th>
     <td><%= f.datetime_select(:update_due, :order => [:day, :month, :year], :minute_step => 15) %></td>
   </tr>
   <tr>
-    <th><% f.label(:callout, "Callout") %></th>
+    <th><%= f.label(:callout, "Callout") %></th>
     <td><%= f.check_box(:callout) %></td>
   </tr>
   <tr>
-    <th><% f.label(:incident_manager, "Incident Manager") %></th>
+    <th><%= f.label(:incident_manager, "Incident Manager") %></th>
     <td><%= f.text_field(:incident_manager) %></td>
   </tr>
 </table>
