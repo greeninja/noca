@@ -28,10 +28,6 @@ class IncidentsController < ApplicationController
 
   def edit
     @incident = Incident.find(params[:id])
-    @incident.incident_updates.build
-    respond_to do |format|
-      format.html
-    end
   end
 
   def update
