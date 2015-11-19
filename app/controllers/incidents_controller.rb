@@ -1,4 +1,7 @@
 class IncidentsController < ApplicationController
+
+#  layout "application"
+
   def index
     @incidents = Incident.opensorted
   end
