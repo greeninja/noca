@@ -1,2 +1,6 @@
-<h1>IncidentUpdates#new</h1>
-<p>Find me in app/views/incident_updates/new.html.erb</p>
+<%= link_to("<< Back", {:action => 'index'}) %>
+
+<%= form_for(:update, :url => {:action => 'create', :incident_id => @incident.id}) do |f| %>
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+  <%= submit_tag("Add Update") %>
+<% end %>
