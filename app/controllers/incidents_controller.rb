@@ -16,6 +16,7 @@ class IncidentsController < ApplicationController
 
   def new
     @incident = Incident.new
+    @incident.incident_updates.build
   end
 
   def create
@@ -45,7 +46,9 @@ class IncidentsController < ApplicationController
 
 private
   def incident_params
-    params.require(:incident).permit(:title, :source, :incident_manager, :impact, :platform, :cs_status, :tech_status, :update_due, :callout, :severity)
+    params.require(:incident).permit(:title, :source, :incident_manager, :impact, :platform, :cs_status, :tech_status, :update_due, :callout, :severity, 
+      :incident_updates => [:incident_id, :cs_update, :tech_update]
+    )
   end
 
 end

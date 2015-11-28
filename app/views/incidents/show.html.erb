@@ -43,3 +43,17 @@
       <td><%= @incident.callout ? 'Yes' : 'No' %>
     </tr>
   </table>
+<table>
+  <tr>
+    <th>Time</th>
+    <th>Customer Update</th>
+    <th>Technical Update</th>
+  </tr>
+<% for update in @incident.incident_updates %>
+  <tr>
+    <td><%= update.created_at.to_s(:short) %></td>
+    <td><%= update.cs_update %></td>
+    <td><%= update.tech_update %></td>
+  </tr>
+<% end %>
+</table>

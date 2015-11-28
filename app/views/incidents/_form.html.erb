@@ -41,15 +41,9 @@
     <td><%= f.text_field(:incident_manager) %></td>
   </tr>
   <hr />
-  <% fields_for :incident_updates do |u| %>
-  <tr>
-    <th><%= u.label(:cs_update, "Customer Update") %></th>
-    <td><%= u.text_field(:cs_update) %></td>
-  </tr>
-  <tr>
-    <th><%= u.label(:tech_update, "Technical Update") %></th>
-    <td><%= u.text_field(:tech_update) %></th>
-  </tr>
-  <% end %>
 </table>
+
+  <%= f.fields_for :incident_updates do |u| %>
+    <%= render(:partial => "form_updates", :locals => {:u => u}) %>
+  <% end %>
 

@@ -1,4 +1,4 @@
-<%= link_to("<< Back", {:action => 'index'}) %>
+<%= link_to("<< Back", {:action => 'index', :incident_id => @incident.id}) %>
 
 <h2>Edit Update</h2>
 <%= form_for(:update, :url => {:action => 'update', :id => @update.id, :incident_id => @incident.id}) do |f| %>
