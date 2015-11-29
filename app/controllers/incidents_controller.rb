@@ -46,9 +46,7 @@ class IncidentsController < ApplicationController
 
 private
   def incident_params
-    params.require(:incident).permit(:title, :source, :incident_manager, :impact, :platform, :cs_status, :tech_status, :update_due, :callout, :severity, 
-      :incident_updates => [:incident_id, :cs_update, :tech_update]
-    )
+    params.require(:incident).permit(:title, :source, :incident_manager, :impact, :platform, :cs_status, :tech_status, :update_due, :callout, :severity, incident_updates_attributes: [:incident_id, :cs_update, :tech_update])
   end
 
 end
