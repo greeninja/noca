@@ -16,7 +16,7 @@ class IncidentsController < ApplicationController
 
   def new
     @incident = Incident.new
-    @incident.incident_updates.build
+    @incident.incident_updates.new
   end
 
   def create
@@ -32,6 +32,7 @@ class IncidentsController < ApplicationController
 
   def edit
     @incident = Incident.find(params[:id])
+    @incident.incident_updates.new
   end
 
   def update
@@ -47,7 +48,7 @@ class IncidentsController < ApplicationController
 private
   def incident_params
     params.require(:incident).permit(:title, :source, :incident_manager, :impact, :platform, :cs_status, :tech_status, :update_due, :callout, :severity, 
-      :incident_updates => [:incident_id, :cs_update, :tech_update]
+      :incident_updates_attributes => [:incident_id, :cs_update, :tech_update]
     )
   end
 

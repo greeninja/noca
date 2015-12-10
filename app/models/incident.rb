@@ -1,6 +1,6 @@
 class Incident < ActiveRecord::Base
   has_many :incident_updates
-  accepts_nested_attributes_for :incident_updates
+  accepts_nested_attributes_for :incident_updates, reject_if: :all_blank 
   validates_presence_of :title
   validates_presence_of :incident_manager
   validates_presence_of :update_due

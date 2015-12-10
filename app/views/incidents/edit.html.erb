@@ -1,7 +1,7 @@
 <%= link_to("<< Back to List", {:action => 'index'} ) %>
 
 <h2>Update Incident</h2>
-<%= form_for(:incident, :url => {:action => 'update', :id => @incident.id}) do |f| %>
+<%= form_for(@incident, :url => {:action => 'update', :id => @incident.id}) do |f| %>
   <%= render(:partial => "form", :locals => {:f => f}) %>
   <%= submit_tag("Update Incident") %>
 <% end %>

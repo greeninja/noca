@@ -1,0 +1,28 @@
+<%= f.fields_for :incident_updates, @incident.incident_updates.new do |u|%>
+
+<h3>Updates</h3>
+<table> 
+  <tr>
+    <th><%= u.label :cs_update, "Customer Update" %>
+    <th><%= u.label :tech_update, "Technical Update" %>
+  </tr>
+  <tr>
+    <td><%= u.text_area :cs_update, :rows => 3 %></td>
+    <td><%= u.text_area :tech_update, :rows => 3 %></td>
+  </tr>
+</table>
+<% end %>
+<table>
+  <tr>
+    <th>Time</th>
+    <th>Customer Update</th>
+    <th>Technical Update</th>
+  </tr>
+<% for update in @incident.incident_updates %>
+  <tr>
+    <td><%= update.created_at %></td>
+    <td><%= update.cs_update %></td>
+    <td><%= update.tech_update %></td>
+  </tr>
+<% end %>
+</table>

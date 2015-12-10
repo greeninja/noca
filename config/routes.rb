@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   
   # Default route added
-  match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
+#   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
+  resources :incidents
 
+  # Because routes are matched in order:
+  #
+  match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

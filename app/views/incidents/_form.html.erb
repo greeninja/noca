@@ -42,8 +42,10 @@
   </tr>
   <hr />
 </table>
-
+<% if(params.has_key?(:id)) %>
+  <%= render(:partial => "update", :locals => {:f => f}) %>
+<% else %>
   <%= f.fields_for :incident_updates do |u| %>
     <%= render(:partial => "form_updates", :locals => {:u => u}) %>
   <% end %>
-
+<% end %>
