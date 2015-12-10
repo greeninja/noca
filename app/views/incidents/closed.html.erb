@@ -1,12 +1,17 @@
 <%# :page_title = "Incidents" %>
+<div class="page-header">
+  <h2>Closed Incidents</h2>
+</div>
 
-<h2>Closed Incidents</h2>
 
-<p><%= pluralize(@incidents.size, 'incident') %> Closed</p>
+<div class="alert alert-info" role="alert"><%= pluralize(@incidents.size, 'incident') %> closed</div>
 
-<%= link_to("Home", {:action => 'index'} ) %>
+<button type="button" class="btn">
+  <%= link_to("Open Incidents", {:action => 'index'} ) %>
+</button>
 
-<table>
+<table class="table table-hover">
+<thead>
   <tr>
     <th>Title</th>
     <th>Severity</th>
@@ -16,17 +21,23 @@
     <th>Update Due</th>
     <th>Actions</th>
   </tr>
-  <tr>
+</thead>
+<tbody>
   <% @incidents.each do |incident| %>
+  <tr>
     <td><%= incident.title %></td>
     <td><%= incident.severity %></td>
     <td><%= incident.incident_manager %></td>
     <td><%= incident.cs_status ? 'Closed' : 'Open' %></td>
     <td><%= incident.tech_status ? 'Closed' : 'Open' %></td>
     <td><%= incident.update_due.to_s(:short) %></td>
-    <td><%= link_to("Show", {:action => 'show', :id => incident.id}) %>
-        <%= link_to("Update", {:action => 'edit', :id => incident.id}) %>
+    <td>
+      <div class="btn-group btn-group-sm" role="group" aria-label="...">
+        <button type="button" class="btn btn-default"><%= link_to("Show", {:action => 'show', :id => incident.id}) %></button>
+        <button type="button" class="btn btn-default"><%= link_to("Update", {:action => 'edit', :id => incident.id}) %></button>
+      </div>
     </td>
   </tr>
   <% end %>
+</tbody>
 </table>

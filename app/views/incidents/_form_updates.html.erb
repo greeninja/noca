@@ -1,11 +1,9 @@
 <h3>Updates</h3>
-<table> 
-  <tr>
-    <th><%= u.label :cs_update, "Customer Update" %>
-    <th><%= u.label :tech_update, "Technical Update" %>
-  </tr>
-  <tr>
-    <td><%= u.text_area :cs_update, :rows => 3 %></td>
-    <td><%= u.text_area :tech_update, :rows => 3 %></td>
-  </tr>
-</table>
+<div class="form-group">
+  <%= u.label :cs_update, "Customer Update" %>
+  <%= u.text_area :cs_update, :rows => 5, type: "text", class: "form-control" %>
+</div>
+<div class="form_group">
+  <%= u.label :tech_update, "Technical Update" %>
+  <%= u.text_area :tech_update, :rows => 5, type: "text", class: "form-control" %>
+</div>

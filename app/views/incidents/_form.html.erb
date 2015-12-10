@@ -1,45 +1,48 @@
 <%# error_messages_for(@incident) %>
-<table summary="Incdent form field">
-  <tr>
-    <th><%= f.label(:title, "Title") %></th>
-    <td><%= f.text_field(:title) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:source, "Source") %></th>
-    <td><%= f.text_field(:source) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:severity, "Severity") %></th>
-    <td><%= f.select :severity, (1..3) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:impact, "Impact") %></th>
-    <td><%= f.text_field(:impact) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:platform, "Platform") %></th>
-    <td><%= f.text_field(:platform) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:cs_status, "Customer Status") %></th>
-    <td><%= f.select :cs_status, [['Open', false], ['Closed', true]] %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:tech_status, "Technical Status") %></th>
-    <td><%= f.select :tech_status, [['Open', false], ['Closed', true]] %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:update_due, "Update Due") %></th>
-    <td><%= f.datetime_select(:update_due, :order => [:day, :month, :year], :minute_step => 15) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:callout, "Callout") %></th>
-    <td><%= f.check_box(:callout) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:incident_manager, "Incident Manager") %></th>
-    <td><%= f.text_field(:incident_manager) %></td>
-  </tr>
+<div class="col-sm-6">
+<table summary="Incdent form field" role="form">
+  <div class="form-group">
+    <%= f.label(:title, "Title", label: "Title") %>
+    <%= f.text_field(:title, class: "form-control", placeholder: "Incident title") %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:source, "Source", label: "Source") %>
+    <%= f.text_field(:source, class: "form-control", placeholder: "Source - eg: Monitoring") %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:severity, "Severity", label: "Severity") %>
+    <%= f.select(:severity, (1..3), class: "from-control", :selected => '3') %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:impact, "Impact", label: "Impact") %>
+    <%= f.text_field(:impact, class: "form-control", placeholder: "Imapct statement for incident") %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:platform, "Platform", label: "Platform") %>
+    <%= f.text_field(:platform, class: "form-control", placeholder: "Platform affected") %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:cs_status, "Customer Status", label: "Customer Status") %>
+    <%= f.select(:cs_status, [['Open', false],['Closed', true]], class: "form-control", :selected => 'Open') %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:tech_status, "Technical Status", label: "Technical Status") %>
+    <%= f.select(:tech_status, [['Open', false],['Closed', true]], class: "form-control", :selected => 'Open') %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:update_due, "Update Due", label: "Update Due") %>
+    <%= f.datetime_select(:update_due, :order => [:day, :month, :year], :minute_step => 15) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label(:callout, "Callout", label: "Callout") %>
+    <%= f.check_box(:callout) %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:incident_manager, "Incident Manager", label: "Incident Manager") %>
+    <%= f.text_field(:incident_manager, class: "form-control", placeholder: "Incident Manager") %>
+  </div>
+</div>
   <hr />
 </table>
 <% if(params.has_key?(:id)) %>
@@ -49,3 +52,4 @@
     <%= render(:partial => "form_updates", :locals => {:u => u}) %>
   <% end %>
 <% end %>
+

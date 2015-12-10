@@ -1,54 +1,50 @@
 <%= link_to("<< Back to List", {:action => 'index'} ) %>
 
-<h2>Show Incident</h2>
-  <table summary="Incident Detail View">
-    <tr>
-      <th>Title</th>
-      <td><%= @incident.title %>
-    </tr>
+<h2>Summary for <%= @incident.title %></h2>
+<div class="row">
+<div class="col-md-8">
+
+<table summary="Incident Detail View" class="table table-bordered">
+  <thead>
     <tr>
       <th>Source</th>
-      <td><%= @incident.source %>
-    </tr>
-    <tr>
       <th>Severity</th>
-      <td><%= @incident.severity %>
-    </tr>
-    <tr>
       <th>Incident Manager</th>
-      <td><%= @incident.incident_manager %>
-    </tr>
-    <tr>
       <th>Impact</th>
-      <td><%= @incident.impact %>
-    </tr>
-    <tr>
       <th>Platform</th>
-      <td><%= @incident.platform %>
-    </tr>
-    <tr>
       <th>Customer Status</th>
-      <td><%= @incident.cs_status ? 'Closed' : 'Open' %>
-    </tr>
-    <tr>
       <th>Technical Status</th>
-      <td><%= @incident.tech_status ? 'Closed' : 'Open' %>
-    </tr>
-    <tr>
       <th>Update Due</th>
-      <td><%= @incident.update_due %>
-    </tr>
-    <tr>
       <th>Callout</th>
+    </tr>
+  <tbody>
+  <% if @incident.update_due.past? %>
+    <tr class="danger">
+  <% else %>
+    <tr class="success">
+  <% end %>
+      <td><%= @incident.source %>
+      <td><%= @incident.severity %>
+      <td><%= @incident.incident_manager %>
+      <td><%= @incident.impact %>
+      <td><%= @incident.platform %>
+      <td><%= @incident.cs_status ? 'Closed' : 'Open' %>
+      <td><%= @incident.tech_status ? 'Closed' : 'Open' %>
+      <td><%= @incident.update_due.to_s(:short) %>
       <td><%= @incident.callout ? 'Yes' : 'No' %>
     </tr>
-  </table>
-<table>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+ <thead>
   <tr>
     <th>Time</th>
     <th>Customer Update</th>
     <th>Technical Update</th>
   </tr>
+ </thead>
+ <tbody>
 <% for update in @incident.incident_updates.sorted %>
   <tr>
     <td><%= update.created_at.to_s(:short) %></td>
@@ -56,4 +52,8 @@
     <td><%= update.tech_update %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
+
+</div>
+</div>
