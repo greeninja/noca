@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # Default route added
 #   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
   resources :incidents
+  get 'closed', to: 'incidents#closed'
 
   # Because routes are matched in order:
   #
