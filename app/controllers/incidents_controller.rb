@@ -22,6 +22,7 @@ class IncidentsController < ApplicationController
   def create
     @incident = Incident.new(incident_params)
     if @incident.save
+      IncidentNotifier.send_incident_update(@incident).deliver_now
       # If the save is successful flash a message on return to index
       flash[:notice] = "New Incident Created = '#{@incident.title}'"
       redirect_to(:action => 'index')
@@ -38,6 +39,7 @@ class IncidentsController < ApplicationController
   def update
     @incident = Incident.find(params[:id])
     if @incident.update_attributes(incident_params)
+      IncidentNotifier.send_incident_update(@incident).deliver_now
       flash[:notice] = "Incident '#{@incident.title} successfully updated"
       redirect_to(:action => 'show', :id => @incident.id)
     else
