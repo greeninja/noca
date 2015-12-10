@@ -27,7 +27,6 @@
     <td><%= incident.update_due.to_s(:short) %></td>
     <td><%= link_to("Show", {:action => 'show', :id => incident.id}) %>
         <%= link_to("Update", {:action => 'edit', :id => incident.id}) %>
-        <%= link_to("Updates", {:controller => 'incident_updates', :action => 'index', :incident_id => incident.id}) %>
     </td>
   </tr>
   <% end %>
