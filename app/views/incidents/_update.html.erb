@@ -18,7 +18,7 @@
     <th>Customer Update</th>
     <th>Technical Update</th>
   </tr>
-<% for update in @incident.incident_updates %>
+<% for update in @incident.incident_updates.sorted %>
   <tr>
     <td><%= update.created_at %></td>
     <td><%= update.cs_update %></td>
