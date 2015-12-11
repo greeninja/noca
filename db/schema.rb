@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128152801) do
+ActiveRecord::Schema.define(version: 20151211133416) do
 
   create_table "incident_updates", force: :cascade do |t|
     t.integer  "incident_id", limit: 4
@@ -38,15 +38,16 @@ ActiveRecord::Schema.define(version: 20151128152801) do
     t.integer  "severity",         limit: 4
   end
 
-  create_table "iupdates", force: :cascade do |t|
-    t.integer  "incident_id", limit: 4
-    t.text     "csupdate",    limit: 65535
-    t.text     "techupdate",  limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "settings", force: :cascade do |t|
+    t.string   "setting_model", limit: 255,   null: false
+    t.string   "setting_name",  limit: 255,   null: false
+    t.text     "setting_value", limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "setting_nice",  limit: 255
   end
 
-  add_index "iupdates", ["incident_id"], name: "index_iupdates_on_incident_id", using: :btree
+  add_index "settings", ["setting_model"], name: "index_settings_on_setting_model", using: :btree
+  add_index "settings", ["setting_name"], name: "index_settings_on_setting_name", using: :btree
 
-  add_foreign_key "iupdates", "incidents"
 end
