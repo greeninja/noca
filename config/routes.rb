@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  
+
+  get 'incidents/closed', to: 'incidents#closed'
+  get 'settings/edit', to: 'settings#edit'
+  get 'settings/new_model', to: 'settings#new_model'
+  get 'settings/show', to: 'settings#show'
+  get 'settings/delete', to: 'settings#delete'
+  post 'settings/:id', to: 'settings#update'
+  post 'settings/:id/destroy', to: 'settings#destroy'
+  # patch 'settings/update', to: 'settings#update'  
   # Default route added
 #   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
   resources :incidents
-  get 'closed', to: 'incidents#closed'
+  resources :settings
 
   # Because routes are matched in order:
   #
