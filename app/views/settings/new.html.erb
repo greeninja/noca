@@ -1,0 +1,11 @@
+<div class="page-header">
+  <h2>New settings for Model <%# @settings.setting_nice %></h2>
+</div>
+<%= puts :model %>
+<%= puts @model %>
+  <%= form_for(:setting, :url => {:action => 'create'} ) do |f| %>
+  <%= render(:partial => "edit_settings", :locals => {:f => f}) %><br />
+  <%= submit_tag("Save Settings", class: "btn btn-primary btn-default pull-right") %>
+  <%= link_to("Cancel", {:action => 'index'}, class: "btn btn-danger btn-default pull-right") %><br />
+  <% end %>
+

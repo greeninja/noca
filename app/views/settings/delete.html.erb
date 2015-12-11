@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h2>Delete Setting</h2>
+</div>
+  <%= form_for(:setting, :url => {:action => 'destroy', :id => @setting.id}) do |f| %>
+  <div class="alert alert-danger" role="alert">
+    <h3>Are you sure you want to delete setting: "<%= @setting.setting_nice %>" ? </h3>
+      <%# link_to("Delete", {:action => 'destroy'}, class: "btn btn-danger pull-right", style: "color:white") %>
+  </div>
+  <%= submit_tag("Delete Setting", class: "btn btn-danger pull-right") %>
+  <%= link_to("Cancel", {:action => 'index'}, class: "btn btn-success pull-right") %><br />
+
+  <% end %>
+

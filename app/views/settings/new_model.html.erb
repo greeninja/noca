@@ -1,0 +1,7 @@
+<h2>New Model</h2>
+  <%= form_for(@setting, :url => {:action => 'create'} ) do |f| %>
+  <%= render(:partial => "new_model", :locals => {:f => f}) %><br />
+  <%= submit_tag("Create Model", class: "btn btn-primary btn-default pull-right") %>
+  <%= link_to("Cancel", {:action => 'index'}, class: "btn btn-danger btn-default pull-right") %><br />
+  <% end %>
+

@@ -1,0 +1,20 @@
+<div class="page-header">
+  <h2>Settings</h2>
+</div>
+<div class="row">
+<% if (@settings_model.size == 0) %>
+  <div class="alert alert-warning" role=="alert">
+    <h3>No Models set up <small>  -  Please add a Model </small>
+    <%= link_to("New Model", {:action => 'new_model'}, class: "btn btn-success pull-right", style: "color:white") %>
+    </h3>
+  </div>
+<% end %>
+<% @settings_model.each do |s| %>
+  <div class="col-md-4">
+    <dl>
+      <dt><%= s.setting_nice %></dt>
+      <dd><%= s.setting_value %></dd>
+      <%= link_to("Show More", {:action => 'show', :setting_model => s.setting_model}, class: "btn btn-success pull-right", style: "color:white") %>
+    </dl>
+  </div>
+<% end %>

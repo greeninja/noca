@@ -1,0 +1,20 @@
+<%# error_messages_for(@settings) %>
+<div class="col-sm-6">
+<table summary="Setting form field" role="form">
+  <div class="form-group">
+    <%= f.label(:setting_model, "Model") %>
+    <%= f.select(:setting_model, options_for_select(@settings.each), {}, {class: "form-control"}) %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:setting_nice, "Nice Setting Name", label: "Setting Name") %>
+    <%= f.text_field(:setting_nice, class: "form-control", placeholder: "Human readable name") %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:setting_name, "Setting Name", label: "Setting Name") %>
+    <%= f.text_field(:setting_name, class: "form-control", placeholder: "Setting name used in the code") %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:setting_value, "Value", label: "Value") %>
+    <%= f.text_field(:setting_value, class: "form-control", placeholder: "Setting Value") %>
+  </div>
+</div>

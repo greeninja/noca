@@ -1,0 +1,37 @@
+<div class="page-header">
+<h2>Setting Summary</h2>
+</div>
+<div class="row">
+<div class="col-md-12">
+  <%= link_to("/settings",  class: "btn btn-primary", style: "color:white") do %>
+    Settings Overview
+    <span class="badge"><%= @settings.size %></span>
+  <% end %>
+  <%# link_to("Closed Incidents", {:action => 'closed'}, class: "btn btn-default", style: "color:inherit")  %>
+<table summary="Incident Detail View" class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nice Name</th>
+      <th>Code Variable</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+  <tbody>
+  <% for s in @settings %>
+    <tr>
+      <td><%= s.setting_nice %></td>
+      <td><%= s.setting_name %></td>
+      <td><%= s.setting_value.slice(0, 110) %></td>
+      <td>
+        <div class="btn-group btn-group-sm" role="group" aria-label="...">
+          <%# link_to("Show", {:action => 'show', :id => s.id}, class: "btn btn-default", style: "color:inherit") %>
+          <%= link_to("Edit", {:action => 'edit', :id => s.id, :model => s.setting_model}, class: "btn btn-default", style: "color:inherit") %>
+          <%= link_to("Delete", {:action => 'delete', :id => s.id}, class: "btn btn-default", style: "color:inherit") %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+ </div>
+</div>
+ <%= link_to("Add setting", {:action => 'new', :model => s.setting_model}, class: "btn btn-success pull-right", style: "color:white") %>
