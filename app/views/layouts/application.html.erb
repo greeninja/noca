@@ -8,9 +8,14 @@
 </head>
 <body>
 
-<%= render(:partial => "shared/navbar") %>
-
+<%= render(:partial => "application/navbar") %>
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-10">
 <%= yield %>
+</div>
+<div class="col-md-1"></div>
+</div>
 
 </body>
 </html>

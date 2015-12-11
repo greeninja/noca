@@ -1,9 +1,14 @@
-<%= link_to("<< Back to List", {:action => 'index'} ) %>
-
+<%# link_to("<< Back to List", {:action => 'index'} ) %>
+<div class="page-header">
 <h2>Summary for <%= @incident.title %></h2>
+</div>
 <div class="row">
 <div class="col-md-8">
-
+  <%= link_to("/incidents",  class: "btn btn-primary", style: "color:white") do %>
+    Open Incidents
+    <span class="badge"><%= @openincidents.size %></span>
+  <% end %>
+  <%= link_to("Closed Incidents", {:action => 'closed'}, class: "btn btn-default", style: "color:inherit")  %>
 <table summary="Incident Detail View" class="table table-bordered">
   <thead>
     <tr>
@@ -54,6 +59,6 @@
 <% end %>
 </tbody>
 </table>
-
+<%= link_to("Update", {:action => 'edit', :id => @incident.id}, class: "btn btn-default pull-right") %>
 </div>
 </div>

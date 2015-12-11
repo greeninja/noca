@@ -2,15 +2,13 @@
 <div class="page-header">
   <h2>Closed Incidents</h2>
 </div>
+  <%= link_to("incidents", class: "btn btn-primary", style: "color:white") do %>
+    Open Incidents
+    <span class="badge"><%= @openincidents.size %></span>
+  <% end %>
+  <%= link_to("Closed Incidents", {:action => 'closed'}, class: "btn btn-default", style: "color:inherit")  %>
 
-
-<div class="alert alert-info" role="alert"><%= pluralize(@incidents.size, 'incident') %> closed</div>
-
-<button type="button" class="btn">
-  <%= link_to("Open Incidents", {:action => 'index'} ) %>
-</button>
-
-<table class="table table-hover">
+<table class="table table-hover table-striped">
 <thead>
   <tr>
     <th>Title</th>
@@ -33,11 +31,13 @@
     <td><%= incident.update_due.to_s(:short) %></td>
     <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="...">
-        <button type="button" class="btn btn-default"><%= link_to("Show", {:action => 'show', :id => incident.id}) %></button>
-        <button type="button" class="btn btn-default"><%= link_to("Update", {:action => 'edit', :id => incident.id}) %></button>
+        <%= link_to("Show", {:action => 'show', :id => incident.id}, class: "btn btn-default", style: "color:inherit") %>
+        <%= link_to("Update", {:action => 'edit', :id => incident.id}, class: "btn btn-default", style: "color:inherit") %>
       </div>
     </td>
   </tr>
   <% end %>
 </tbody>
 </table>
+
+<%= link_to("New Incident", {:action => 'new'}, class: "btn btn-success pull-right", style: "color:white") %>

@@ -1,4 +1,4 @@
-<%# error_messages_for(@incident) %>
+<%= error_messages_for(@incident) %>
 <div class="col-sm-6">
 <table summary="Incdent form field" role="form">
   <div class="form-group">
@@ -10,8 +10,8 @@
     <%= f.text_field(:source, class: "form-control", placeholder: "Source - eg: Monitoring") %>
   </div>
   <div class="form-group">
-    <%= f.label(:severity, "Severity", label: "Severity") %>
-    <%= f.select(:severity, (1..3), class: "from-control", :selected => '3') %>
+    <%= f.label(:severity, "Severity") %>
+    <%= f.select(:severity, options_for_select((1..3).sort.reverse), {}, {class: "form-control"}) %>
   </div>
   <div class="form-group">
     <%= f.label(:impact, "Impact", label: "Impact") %>
@@ -22,12 +22,12 @@
     <%= f.text_field(:platform, class: "form-control", placeholder: "Platform affected") %>
   </div>
   <div class="form-group">
-    <%= f.label(:cs_status, "Customer Status", label: "Customer Status") %>
-    <%= f.select(:cs_status, [['Open', false],['Closed', true]], class: "form-control", :selected => 'Open') %>
+    <%= f.label(:cs_status, "Customer Status") %>
+    <%= f.select(:cs_status, options_for_select([['Open', false],['Closed', true]]), {}, {class: "form-control"}) %>
   </div>
   <div class="form-group">
-    <%= f.label(:tech_status, "Technical Status", label: "Technical Status") %>
-    <%= f.select(:tech_status, [['Open', false],['Closed', true]], class: "form-control", :selected => 'Open') %>
+    <%= f.label(:tech_status, "Technical Status") %>
+    <%= f.select(:tech_status, options_for_select([['Open', false],['Closed', true]]), {}, {class: "form-control"}) %>
   </div>
   <div class="form-group">
     <%= f.label(:update_due, "Update Due", label: "Update Due") %>

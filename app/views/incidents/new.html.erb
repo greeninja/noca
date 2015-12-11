@@ -2,6 +2,7 @@
 
 <h2>New Incident</h2>
   <%= form_for(@incident, :url => {:action => 'create'} ) do |f| %>
-  <%= render(:partial => "form", :locals => {:f => f}) %>
-  <%= submit_tag("Create Incident") %>
+  <%= render(:partial => "form", :locals => {:f => f}) %><br />
+  <%= submit_tag("Create Incident", class: "btn btn-primary btn-default pull-right") %>
+  <%= link_to("Cancel", {:action => 'index'}, class: "btn btn-danger btn-default pull-right") %><br />
   <% end %>

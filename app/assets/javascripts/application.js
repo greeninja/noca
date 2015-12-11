@@ -14,13 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require moment
-//= require bootstrap-sprockets
-//= require bootstrap-datetimepicker
 //= require_tree .
 //
-$('.datetimepicker').datetimepicker({
-    sideBySide: true,
-    format: 'LT'
-  });
-
