@@ -4,6 +4,7 @@ class IncidentsController < ApplicationController
 
   def index
     @incidents = Incident.opensorted
+    @settings = Setting.where(:settings_model => 'incidents')
   end
 
   def closed
