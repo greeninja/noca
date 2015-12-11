@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'change/index'
+
+  get 'change/show'
+
+  get 'change/new'
+
+  get 'change/edit'
+
   get 'incidents/closed', to: 'incidents#closed'
   get 'settings/edit', to: 'settings#edit'
   get 'settings/new_model', to: 'settings#new_model'
