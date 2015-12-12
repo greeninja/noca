@@ -1,0 +1,38 @@
+# Settings
+
+Inegrate settings model into incidents
+
+# Incidents
+
+Make propper mailer for incidents controller - selectable from settings controller
+
+# Wiki 
+Build:
+Based on WP DB stying with parent groupings
+Look for a gem to integrate html editor
+Needs reminder to update articles
+
+# Change
+
+Build:
+ Need to do a fair bit of research on this. Needs to fit ITIL model
+
+# Problem 
+Similar to handover - Needs to include percentage of completion.
+Look into other projects see what they offer
+More ITIL research
+
+# Handover
+Similar to Operations handover
+
+# Asset list 
+This will probably be one of the biggest bits of work. Will most likely be in new branch
+
+# Customer Incident reporting
+Maybe - although this is more based around being for NOC users over a FL / Support team
+
+# Home Page
+Enough said
+
+# Authentication Model
+This will be huge as these is lots of custom accesses. Look into the flexibility of the cancan gem...
