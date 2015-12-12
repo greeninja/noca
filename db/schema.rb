@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211184337) do
+ActiveRecord::Schema.define(version: 20151212190738) do
 
   create_table "change_comments", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,6 +21,23 @@ ActiveRecord::Schema.define(version: 20151211184337) do
   create_table "changes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "handover_updates", force: :cascade do |t|
+    t.integer  "handover_id", limit: 4
+    t.string   "user_name",   limit: 255
+    t.text     "update",      limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "handovers", force: :cascade do |t|
+    t.string   "title",         limit: 255,                 null: false
+    t.integer  "team",          limit: 4,                   null: false
+    t.boolean  "status",                    default: false
+    t.string   "assigned_user", limit: 255
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "incident_updates", force: :cascade do |t|
@@ -48,6 +65,27 @@ ActiveRecord::Schema.define(version: 20151211184337) do
     t.integer  "severity",         limit: 4
   end
 
+  create_table "project_updates", force: :cascade do |t|
+    t.integer  "project_id", limit: 4
+    t.text     "comment",    limit: 65535
+    t.string   "user_name",  limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "title",         limit: 255,   null: false
+    t.string   "assigned_user", limit: 255
+    t.string   "created_by",    limit: 255
+    t.datetime "required_by"
+    t.string   "progress",      limit: 255
+    t.boolean  "status"
+    t.text     "brief",         limit: 65535
+    t.string   "team",          limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "settings", force: :cascade do |t|
     t.string   "setting_model", limit: 255,   null: false
     t.string   "setting_name",  limit: 255,   null: false
@@ -59,5 +97,18 @@ ActiveRecord::Schema.define(version: 20151211184337) do
 
   add_index "settings", ["setting_model"], name: "index_settings_on_setting_model", using: :btree
   add_index "settings", ["setting_name"], name: "index_settings_on_setting_name", using: :btree
+
+  create_table "wikis", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "author",     limit: 255
+    t.text     "content",    limit: 65535
+    t.datetime "update_due"
+    t.integer  "parent",     limit: 4
+    t.boolean  "status"
+    t.string   "team",       limit: 255
+    t.boolean  "public"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
 end
