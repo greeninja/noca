@@ -36,3 +36,6 @@ Enough said
 
 # Authentication Model
 This will be huge as these is lots of custom accesses. Look into the flexibility of the cancan gem...
+
+# IP Addressing
+Not sure about how this will work. Will be attached to the Asset list and indipendant somehow.
