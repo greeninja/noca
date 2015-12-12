@@ -1,5 +1,35 @@
 Rails.application.routes.draw do
 
+  get 'project/index'
+
+  get 'project/show'
+
+  get 'project/create'
+
+  get 'project/edit'
+
+  get 'project/closed'
+
+  get 'wiki/index'
+
+  get 'wiki/edit'
+
+  get 'wiki/create'
+
+  get 'wiki/show'
+
+  get 'wiki/delete'
+
+  get 'handover/index'
+
+  get 'handover/show'
+
+  get 'handover/create'
+
+  get 'handover/edit'
+
+  get 'handover/closed'
+
   get 'change/index'
 
   get 'change/show'
