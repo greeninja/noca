@@ -8,6 +8,7 @@
     <span class="badge"><%= @incidents.size %></span>
   <% end %>
   <%= link_to("Closed Incidents", {:action => 'closed'}, class: "btn btn-default", style: "color:inherit")  %>
+<hr>
 <% if (@incidents.size == 0) %>
   <div class="alert alert-success" role="alert">
     <h3>No Open Incidents <small> -  This is a good thing! :) </small> </h3>
