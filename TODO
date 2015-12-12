@@ -1,6 +1,8 @@
 # Settings
 
 Inegrate settings model into incidents
+Have settings nested model. Add major settings groups then varables. EG incident_priority => nested array 1,2,3 etc.
+Pull nested arrays from settings controlled. Will look better and easier to manage
 
 # Incidents
 
