@@ -11,8 +11,69 @@
 </div>
 </table>
 <% end %>
+</div>
+<div class="col-sm-6">
+<h3 class="text-center">Previous Updates</h3>
+<div class="row">
+  <div class="col-md-6">
+    <h4 class="text-center">Customer Updates</h4>
+  </div>
+  <div class="col-md-6">
+    <h4 class="text-center">Technical Updates</h4>
+  </div>
+</div>
 
-<table class="table table-striped">
+<ul class="timeline">
+<% @incident.incident_updates.sorted.each do |update| %>
+  <% if update.tech_update.blank? %>
+    <li>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <p>Customer Update at <%= update.created_at.to_s(:short) %></p>
+        </div>
+        <div class="timeline-body">
+          <p><%= update.cs_update %></p>
+        </div>
+      </div>
+    </div>
+  </li>
+  <% elsif update.cs_update.blank? %>
+  <li class="timeline-inverted">
+    <div class="timeline-panel">
+      <div class="timeline-heading">
+        <p>Technical Update at <%= update.created_at.to_s(:short) %></p>
+      </div>
+      <div class="timeline-body">
+        <p><%= update.tech_update %></p>
+      </div>
+    </div>
+  </li>
+  <% else %>
+  <li>
+    <div class="timeline-panel">
+      <div class="timeline-heading">
+        <p>Customer Update at <%= update.created_at.to_s(:short) %></p>
+      </div>
+      <div class="timeline-body">
+        <p><%= update.cs_update %></p>
+      </div>
+    </div>
+  </li>
+  <li class="timeline-inverted">
+    <div class="timeline-panel">
+      <div class="timeline-heading">
+        <p>Technical Update at <%= update.created_at.to_s(:short) %></p>
+      </div>
+      <div class="timeline-body">
+        <p><%= update.tech_update %></p>
+      </div>
+    </div>
+  </li>
+  <% end %>
+<% end %>
+</ul>
+
+<!-- <table class="table table-striped">
  <thead>
   <tr>
     <th>Time</th>
@@ -30,4 +91,4 @@
 <% end %>
 </tbody>
 </table>
-
+-->

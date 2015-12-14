@@ -14,13 +14,23 @@
 ActiveRecord::Schema.define(version: 20151212190738) do
 
   create_table "change_comments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "change_id",  limit: 4
+    t.text     "comment",    limit: 65535
+    t.string   "user_name",  limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "changes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",      limit: 255,                 null: false
+    t.string   "platform",   limit: 255,                 null: false
+    t.string   "type",       limit: 255,                 null: false
+    t.string   "details",    limit: 255,                 null: false
+    t.integer  "level",      limit: 4
+    t.string   "workflow",   limit: 255
+    t.boolean  "approved",               default: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "handover_updates", force: :cascade do |t|
