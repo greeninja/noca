@@ -5,13 +5,19 @@
       <%= stylesheet_link_tag('application', :media => 'all') %>
   </head>
   <body>
-  <% if !flash[:notice].blank? %>
-    <div class="alert alert-success fade in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <%= flash[:notice] %>
-    </div>  
+  <%= render(:partial => "application/navbar") %>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+    <% if !flash[:notice].blank? %>
+      <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <%= flash[:notice] %>
+      </div>  
     <% end %>
     <%= yield %>
+    <div class="col-md-1"></div>
+  </div>
   </body>
 </html>
 

@@ -1,5 +1,4 @@
-<%# link_to("<< Back to List", {:action => 'index'} ) %>
-
+<% @page_title = "Update Incident" %>
 <h2>Update Incident</h2>
 <%= form_for(@incident, :url => {:action => 'update', :id => @incident.id}) do |f| %>
   <%= render(:partial => "form", :locals => {:f => f}) %>
